@@ -1,0 +1,528 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary: rgb(1, 25, 255);
+    --slate: rgb(62, 62, 62);
+    --bg: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgb(255, 252, 239) 50%, rgb(204, 255, 248) 100%);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: rgb(255,255,255);
+    background: var(--bg);
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#open, #close {
+    display: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 6rem;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    background: var(--bg);
+}
+
+nav > a {
+    font-weight: bolder;
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    gap: 4rem;
+}
+
+nav ul li {
+    display: block;
+    width: auto;
+    text-align: center;
+    position: relative;
+}
+
+nav ul li::before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1.5px;
+    background: black;
+    bottom: 0;
+    left: 0;
+    transition: .2s ease-in;
+}
+
+nav ul li:hover:before {
+    width: 100%;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--slate);
+    font-weight: 300;
+    font-size: .9rem;
+}
+
+nav ul li a.active {
+    color: black;
+    font-weight: 600;
+}
+
+nav button {
+    font-weight: 700;
+    background: none;
+    border: 1px solid rgb(62, 62, 62, 0.6);
+    padding: .5rem;
+    width: 6rem;
+    border-radius: .2rem;
+    cursor: pointer;
+    transition: .3s ease-in;
+    outline: none;
+}
+
+nav button:hover {
+    background-color: black;
+    color: white;
+}
+
+main {
+    padding: 2rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: 100%;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 7rem;
+}
+
+.hero h1 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    width: 35rem;
+    line-height: 2.6rem;
+}
+
+.hero p {
+    color: var(--slate);
+    width: 30rem;
+    font-size: .9rem;
+    line-height: 1.5rem;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.explore {
+    background-color: var(--primary);
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: .9rem;
+    padding: .8rem;
+    width: 12rem;
+    border-radius: 5rem;
+    border: 1px solid rgba(255, 255, 255, 0);
+    box-shadow: 0px 6px 10px 2px rgb(1, 25, 255, 0.2);
+    transition: .2s ease-in;
+}
+
+.explore:hover {
+    background-color: unset;
+    border: 1px solid black;
+    color: black;
+    box-shadow: 0px 6px 10px 2px rgb(0, 0, 0, 0.2);
+}
+
+.explore:focus {
+    background-color: black;
+    color: white;
+    box-shadow: 0px 6px 10px 2px rgb(0, 0, 0, 0.2);
+}
+
+.buttons a {
+    font-size: .9rem;
+    color: var(--primary);
+    font-weight: bolder;
+    text-decoration: none;
+    display: block;
+    position: relative;
+}
+
+.buttons a::before{
+    content: "";
+    position: absolute;
+    height: .5px;
+    width: 0;
+    background-color: var(--primary);
+    bottom: 1px;
+    left: 0;
+    transition: .2s ease-in;
+}
+
+.buttons a:hover:before {
+    width: 100%;
+}
+
+.featured {
+    width: 100%;
+}
+
+.featured > p {
+    font-weight: 600;
+    font-size: smaller;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1.5rem;
+}
+
+.box {
+    background-color: white;
+    width: 33%;
+    border-radius: .4rem;
+    box-shadow: 0px 6px 15px 1px rgb(1, 25, 255, 0.2);
+    padding: 1.5rem;
+}
+
+.box.active {
+    background-color: var(--primary);
+    color: white;
+    
+}
+
+.box.active p:nth-child(1), .box.active p:nth-child(2) {
+    font-weight: 300;
+}
+
+.box.active p {
+    color: white;
+    font-size: 80%;
+}
+
+.box.active .items p:nth-child(1) {
+    background-color: rgb(44, 61, 255);
+    font-weight: 600;
+}
+
+.box.active .items p:nth-child(2) {
+    font-weight: 600;
+}
+
+.logo-and-title {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-and-title img {
+    width: 2.5rem;
+    height: auto;
+}
+
+.logo-and-title .figma {
+    width: 1.6rem;
+}
+
+.title {
+    line-height: 1rem;
+}
+
+.title h2 {
+    font-size: 1rem;
+}
+
+.title p {
+    font-size: .8rem;
+    color: var(--slate);
+    font-weight: 300;
+}
+
+.box > p {
+    font-size: 80%;
+    color: var(--slate);
+    margin-top: .6rem;
+    display: block;
+    height: 5rem;
+}
+
+.items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.items p:nth-child(1) {
+    font-size: .7rem;
+    font-weight: 600;
+    background-color: rgb(219, 219, 219);
+    border-radius: 5rem;
+    padding: .1rem .5rem;
+}
+
+.items p:nth-child(2) {
+    font-size: .7rem;
+    font-weight: 600
+}
+
+.nav .signup {
+    display: none;
+}
+
+
+
+
+
+
+
+
+@media only screen  and (max-width: 1120px) {
+
+    nav {
+        padding: 2rem 3rem;
+    }
+
+    nav ul {
+        gap: 3rem;
+    }
+
+    main {
+        padding: 2rem 3rem;
+    }
+
+    .wrapper {
+        gap: 1rem;
+    }
+}
+
+
+@media only screen and (max-width: 1000px) {
+
+    .featured > p {
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .wrapper {
+        gap: 2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .box {
+        width: 45%;
+    }
+
+}
+
+
+
+@media only screen and (max-width: 800px) {
+    nav ul {
+        display: none;
+    }
+
+    nav .signup {
+        display: none;
+    }
+
+    #open {
+        display: block;
+    }
+
+    nav {
+        padding: 1.5rem 2rem;
+        justify-content: space-between;
+
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 2rem;
+    }
+    
+    .hero h1 {
+        width: auto;
+        padding: 1rem 1rem;
+        font-size: 1.5rem;
+    }
+    
+    .hero p {
+        padding: 0 2rem;
+        width: auto;
+        font-size: .8rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    .featured > p {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+
+    .wrapper {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .box {
+        width: 85%;
+        padding: 2rem;
+    }
+
+    .nav {
+        position: fixed;
+        margin-top: 6.5rem;
+        width: 100%;
+        height: 0;
+        z-index: 999;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 0;
+        height: 0;
+        overflow: hidden;
+        transition: .3s ease-out;
+    }
+
+    .nav ul {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .nav ul li {
+        display: block;
+        width: auto;
+        text-align: center;
+        position: relative;
+    }
+    
+    .nav ul li::before {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 1.5px;
+        background: black;
+        bottom: 0;
+        left: 0;
+        transition: .2s ease-in;
+    }
+    
+    .nav ul li:hover:before {
+        width: 100%;
+    }
+    
+    .nav ul li a {
+        text-decoration: none;
+        color: var(--slate);
+        font-weight: 300;
+        font-size: .9rem;
+    }
+    
+    .nav ul li a.active {
+        color: black;
+        font-weight: 600;
+    }
+    
+    .nav .signup {
+        font-weight: 700;
+        background: none;
+        border: 1px solid rgb(62, 62, 62, 0.6);
+        padding: .5rem;
+        width: 6rem;
+        border-radius: .2rem;
+        cursor: pointer;
+        transition: .3s ease-in;
+        display: block;
+    }
+    
+    .nav .signup:hover {
+        color: white;
+        background: black;
+    }
+
+    .opened {
+        height: 100vh;
+        padding: 2rem;
+        transition: .3s ease-in;
+    }
+
+
+    .fixed {
+        overflow: hidden;
+    }
+   
+}
+
+
+@media only screen and (max-width: 500px) {
+    .box {
+        width: 100%;
+    }
+}
+
+
+
+/*
+   ////////////////    ///////////////    ///////////////    ///////////////
+   ///////////////      ///////////////    ///////////////    ///////////////
+   ///////////////      ///////////////    ///////////////    ///////////////
+   ///////////////      ///////////////    ///////////////    ///////////////
+   ///////////////      ///////////////    ///////////////    ///////////////
+   ///////////////      ///////////////    ///////////////    ///////////////
+   ///////////////      ///////////////    ///////////////    ///////////////
+   ///////////////      ///////////////    ///////////////    ///////////////
+   ///////////////      ///////////////    ///////////////    ///////////////
+   ///////////////      ///////////////    ///////////////    ///////////////
+   ///////////////      ///////////////    ///////////////    ///////////////
+*/
